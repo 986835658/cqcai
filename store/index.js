@@ -8,6 +8,7 @@ import {
 } from "@/plugins/saveCook";
 export const state = () => ({
   token: "",
+  name:"",
   userData: "",
   userList:[],
 });
@@ -16,6 +17,7 @@ export const mutations = {
   setToken(state, token) {
     setToken(token);
     state.token = token;
+    state.name=token
   },
   setUserData(state, userObj) {
     state.userData = userObj;

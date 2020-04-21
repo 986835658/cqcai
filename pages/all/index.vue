@@ -162,7 +162,7 @@ export default {
           {
             name: "操作系统",
             type: "line",
-            data: [1001, 1800, 1683, 1563, 1902, 2413, 2100],
+            data: [1001, 2420, 1783, 1763, 1902, 2213, 2100],
             markPoint: {
               data: [
                 { type: "max", name: "最大值" },
@@ -193,7 +193,7 @@ export default {
           {
             name: "办公软件",
             type: "line",
-            data: [500, 1700, 1580, 1000, 1700, 1300, 1500],
+            data: [500, 900, 1500, 1000, 1600, 1300, 1500],
               markPoint: {
               data: [
                 { type: "max", name: "最大值" },

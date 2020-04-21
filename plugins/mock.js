@@ -45,6 +45,27 @@ export const getMessageInit = () => {
   };
 };
 Mock.mock(/\/message\/init/, getMessageInit);
+export const getMessageprovde = () => {
+  let trashList = [];
+  doCustomTimes(10, () => {
+    trashList.push(
+      Mock.mock({
+        provider: `重庆${Random.cword(2, 4)}有限公司`,
+        address: Random.county(true),
+        men: Random.cname(),
+        phone: `02${Random.integer(120487439, 999999999)}`,
+        telphone: `18${Random.integer(0, 9)}${Random.integer(
+          12048749,
+          99999999
+        )}`,
+        chuanzhen: Random.integer(120484, 999999),
+        action: "查看"
+      })
+    );
+  });
+  return trashList;
+};
+Mock.mock(/\/message\/provide/, getMessageprovde);
 Mock.mock(/user\.json/, [
   {
     name: "18223962895",
@@ -58,6 +79,7 @@ Mock.mock(/user\.json/, [
     avatar: "https://avatars0.githubusercontent.com/u/20942571?s=460&v=4"
   }
 ]);
+
 Mock.mock(/\/get_info/, {
   id: 0,
   label: "XXX科技有限公司",
