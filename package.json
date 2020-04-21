@@ -1,0 +1,44 @@
+{
+  "name": "nux",
+  "version": "1.0.0",
+  "description": "My impeccable Nuxt.js project",
+  "author": "Zhihong Liu",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "post-update": "yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@bazzite/nuxt-optimized-images": "^0.3.0",
+    "@nuxtjs/axios": "^5.9.7",
+    "@nuxtjs/proxy": "^1.3.3",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.7.0",
+    "cookieparser": "^0.1.0",
+    "echarts": "^4.7.0",
+    "iview": "^3.5.4",
+    "js-cookie": "^2.2.1",
+    "lazysizes": "^5.2.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.1.0",
+    "nuxt": "^2.0.0",
+    "nuxt-lazyimage": "^2.0.1",
+    "particles.js": "^2.0.0",
+    "spinkit": "^2.0.1",
+    "velocity-animate": "^1.5.2",
+    "velocityjs": "^2.0.0",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "imagemin-mozjpeg": "^8.0.0",
+    "responsive-loader": "^1.2.0",
+    "sass-resources-loader": "^2.0.3",
+    "vue-particles": "^1.0.9",
+    "webp-loader": "^0.6.0"
+  }
+}

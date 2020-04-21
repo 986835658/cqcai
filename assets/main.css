@@ -1,0 +1,45 @@
+/* .page-enter-active {
+  animation: bounce-in 0.5s ease-in-out;
+  
+}
+.page-leave-active {
+  animation: bounce-in 0.8s reverse;
+} */
+/* .page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter, .page-leave-to  {
+  opacity: 0;
+} */
+.page-enter-active {
+  transition: all .3s ease;
+}
+.page-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.page-enter, .slide-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(50px);
+  opacity: 0;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(1);
+  }
+  /* 25% {
+    transform: scale(0.4) rotate(180deg); */
+  /* } */
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+/* .page-enter{
+    display: block;
+}
+.page-leave-to {
+ display: none;
+} */

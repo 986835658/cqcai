@@ -1,0 +1,24 @@
+<template>
+  <div class="container">
+    <p>协议供应商</p>
+    <NuxtLink to="/">
+      Go to /
+    </NuxtLink>
+  </div>
+</template>
+
+<script>
+export default {
+  asyncData () {
+
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 100px;
+}
+</style>
