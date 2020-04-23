@@ -6,7 +6,7 @@
       :particlesNumber="100"
       shapeType="circle"
       :particleSize="4"
-      linesColor="#e54243"
+      linesColor="#fff"
       :linesWidth="1"
       :lineLinked="true"
       :lineOpacity="0.4"
@@ -366,10 +366,10 @@ export default {
   width: 100%;
   height: 100%;
   background: #f8f8f8;
-  // background-image: url('../../assets/images/bg-2.png');
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: 50% 50%;
+  background-image: url('../../assets/images/back_img01.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
   z-index: 1000;
   top: 0;
   left: 0;
