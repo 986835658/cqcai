@@ -100,8 +100,12 @@ export default {
     };
   },
 
-  mounted() {},
+  created() {
+    // this.user = this.$store.state.token;
+  },
   mounted() {
+    
+
     axios.get("user.json").then(res => {
       this.requeList = res.data;
     });
@@ -141,7 +145,7 @@ export default {
   width: 100%;
   text-align: center;
   a {
-    color:#515a6e;
+    color: #515a6e;
     text-decoration: none;
   }
   .active-link {

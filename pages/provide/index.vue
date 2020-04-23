@@ -172,7 +172,6 @@ export default {
       this.allDate.forEach(item => {
         if (item.provider.indexOf(this.type)!==-1) {
           this.showData.push(item);
-          console.log(this.showData);
         }
       });
     },

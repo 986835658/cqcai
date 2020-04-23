@@ -9,7 +9,7 @@
               <a>
                 <img class="tu" :src="source.imgUrl" alt />
               </a>
-              <div class="time">
+              <div ref="dom" class="time">
                 <p>剩余时间{{time}}</p>
                 <div>
                   <Button @click="join(source,index)">参与竞价</Button>
@@ -45,7 +45,7 @@
               </div>
             </div>
 
-            <div class="textbox">
+            <div  class="textbox">
               <span style="color:#ff2e4c;">￥{{item.price}}</span>
               <span>
                 <a>{{item.detail}}</a>
@@ -141,6 +141,7 @@ export default {
         this.sources.splice(i, 1);
         this.joinList.push(item);
       } else {
+        clearInterval(this.timer);
         this.$router.push("/login");
       }
     },
@@ -154,6 +155,7 @@ export default {
     interval() {
       this.timer = setInterval(() => {
         this.time--;
+
         if (this.time === 0) {
           this.time = 60;
           this.joinList.push(...this.sources);
@@ -178,6 +180,7 @@ export default {
     this.interval();
   },
   destroyed() {
+    clearInterval(this.timer);
     if (this.$store.state.token && this.joinList.length) {
       const userDate = JSON.parse(localStorage.getItem("userList"));
       if (userDate) {
@@ -189,8 +192,8 @@ export default {
           }
         });
         localStorage.setItem("userList", JSON.stringify(userDate));
-      }else if(this.$store.state.token==="刘志鸿"){
-         alert("管理员参与的竞价记录不会保存")
+      } else if (this.$store.state.token === "刘志鸿") {
+        alert("管理员参与的竞价记录不会保存");
       }
     }
   }

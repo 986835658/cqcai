@@ -110,8 +110,6 @@ export default {
       console.log(this.num);
     },
     showRegiste() {
-      console.log(222);
-
       this.$emit("showRegister", false);
     },
     showPasswor() {
@@ -128,7 +126,6 @@ export default {
           if (localStorage.getItem("userList")) {
             userObj.push(...JSON.parse(localStorage.getItem("userList")));
           }
-          console.log(userObj);
          const user = userObj.filter(item => {
             if (item.name == this.form.phone) {
               return item;

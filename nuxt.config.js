@@ -31,23 +31,24 @@ export default {
    ** Global CSS
    */
 
-    server: {
-      port: 3001, // default: 3000
-      host: '0.0.0.0' // default: localhost
-    },
-    // other configs
-  
+  server: {
+    port: 3001, // default: 3000
+    host: "0.0.0.0" // default: localhost
+  },
+  // other configs
+
   css: ["~/assets/main.css", "~/assets/min.css"],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     { src: "~plugins/iview", ssr: true },
-    { src:"~plugins/vue-particles",ssr:false},
+    { src: "~plugins/vue-particles", ssr: false },
     "~/plugins/mock.js",
     "~/plugins/axios.js",
     "~/plugins/saveCook.js",
-    '~plugins/echarts.js'
+    "~plugins/echarts.js",
+    { src: '~/plugins/storeSave', mode: 'client' }
   ],
   router: {
     linkActiveClass: "active-link",
@@ -60,7 +61,7 @@ export default {
    ** Nuxt.js dev-modules
    */
   axios: {
-    baseURL: '',
+    baseURL: "",
     proxy: false
   },
   buildModules: [],
@@ -70,7 +71,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "bootstrap-vue/nuxt",
-    '@nuxtjs/axios',
+    "@nuxtjs/axios"
     // Doc: https://github.com/nuxt-community/dotenv-module
   ],
   /*
