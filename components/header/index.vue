@@ -16,6 +16,7 @@
         >退出登录</a>
       </p>
       <div class="right">
+        <NuxtLink to="/" style="background-color:#f8f8f8">首页</NuxtLink>
         <NuxtLink to="/" style="background-color:#f8f8f8">我的中心</NuxtLink>
         <NuxtLink to="/" style="background-color:#f8f8f8">帮助中心</NuxtLink>
         <span>63782227(工作日)</span>
@@ -49,13 +50,13 @@
       </div>
     </div>
     <Modal v-model="modal1" title="您已经退出登陆状态" @on-ok="ok" @on-cancel="cancel">是否重新登录账号？</Modal>
-    <div class="rout row">
+    <div class="rout">
       <div class="title">
         <NuxtLink to="/all">
           <div>全部商品分类</div>
         </NuxtLink>
       </div>
-      <div class="title col" v-for="(item,index) in titles" :key="index">
+      <div class="title" v-for="(item,index) in titles" :key="index">
         <NuxtLink :to="item.url">{{item.title}}</NuxtLink>
       </div>
     </div>
@@ -99,7 +100,7 @@ export default {
     };
   },
 
-  created() {},
+  mounted() {},
   mounted() {
     axios.get("user.json").then(res => {
       this.requeList = res.data;
@@ -140,6 +141,7 @@ export default {
   width: 100%;
   text-align: center;
   a {
+    color:#515a6e;
     text-decoration: none;
   }
   .active-link {

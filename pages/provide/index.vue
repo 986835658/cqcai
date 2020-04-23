@@ -76,6 +76,13 @@
         </div>
       </Row>
     </Card>
+    <Card style="margin-top:20px">
+      <Row>
+        公司名称：
+        <i-input v-model="type" style="width:200px" clearable></i-input>
+        <Button  @click="searchList" style="margin-left: 20px">搜索</Button>
+      </Row>
+    </Card>
     <Card class="card" style="margin-top:20px">
       <Table border :loading="loading" :columns="tableColumns" :data="showData">
         <template slot-scope="{ row, index }" slot="action">
@@ -112,7 +119,9 @@ export default {
   data() {
     return {
       gs: "",
+      type: "",
       showData: [],
+      allDate: [],
       loading: false,
       modal1: false,
       tableColumns: [
@@ -158,6 +167,15 @@ export default {
     };
   },
   methods: {
+    searchList() {
+      this.showData = [];
+      this.allDate.forEach(item => {
+        if (item.provider.indexOf(this.type)!==-1) {
+          this.showData.push(item);
+          console.log(this.showData);
+        }
+      });
+    },
     showDetail(row, index) {
       this.gs = row.provider;
       this.modal1 = true;
@@ -168,12 +186,13 @@ export default {
         this.loading = false;
         axios.get("/message/provide").then(res => {
           this.showData = res.data;
+          this.allDate = res.data;
         });
       }, 1000);
     }
   },
 
-  created() {
+  mounted() {
     this.initDate();
   }
 };
@@ -182,7 +201,7 @@ export default {
 <style lang="less" scoped>
 .container {
   width: 100%;
-height: 716px;
+  height: 806px;
   .card {
     width: 100%;
     margin: auto;

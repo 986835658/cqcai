@@ -8,14 +8,22 @@
 </template>
 
 <script>
-import Header from '~/components/header'
-import Footer from '~/components/footer'
+import Header from "~/components/header";
+import Footer from "~/components/footer";
 export default {
   components: {
     Header,
     Footer
-  }
-}
+  },
+  // asyncData() {
+  //   return new Promise(resolve => {
+  //     setTimeout(function() {
+  //       resolve({});
+  //     }, 1000);
+  //   });
+  // },
+  loading:true
+};
 </script>
 <style>
 .margin {

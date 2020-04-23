@@ -23,8 +23,6 @@
     "iview": "^3.5.4",
     "js-cookie": "^2.2.1",
     "lazysizes": "^5.2.0",
-    "less": "^3.11.1",
-    "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
     "nuxt": "^2.0.0",
     "nuxt-lazyimage": "^2.0.1",
@@ -36,6 +34,8 @@
   },
   "devDependencies": {
     "imagemin-mozjpeg": "^8.0.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
     "responsive-loader": "^1.2.0",
     "sass-resources-loader": "^2.0.3",
     "vue-particles": "^1.0.9",

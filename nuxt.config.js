@@ -26,7 +26,7 @@ export default {
    ** Customize the progress-bar color
    */
 
-  // loading: "~/components/loading.vue",
+  loading: "~/components/loading.vue",
   /*
    ** Global CSS
    */
@@ -42,7 +42,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: "~plugins/iview", ssr: false },
+    { src: "~plugins/iview", ssr: true },
     { src:"~plugins/vue-particles",ssr:false},
     "~/plugins/mock.js",
     "~/plugins/axios.js",

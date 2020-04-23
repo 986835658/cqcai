@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="comptition">
     <div style="height:50px"></div>
     <Tabs style="height:550px" value="name1">
       <TabPane label="正在竞价" name="name1">
@@ -166,35 +166,41 @@ export default {
   mounted() {
     if (this.$store.state.token) {
       const userDate = JSON.parse(localStorage.getItem("userList"));
-      userDate.forEach(el => {
-        if (el.token === this.$store.state.token) {
-        this.joinList=el.joinList
-        }
-      });
-       
+      if (userDate) {
+        userDate.forEach(el => {
+          if (el.token === this.$store.state.token) {
+            this.joinList = el.joinList;
+          }
+        });
+      }
     }
-  
+
     this.interval();
   },
   destroyed() {
     if (this.$store.state.token && this.joinList.length) {
       const userDate = JSON.parse(localStorage.getItem("userList"));
-      localStorage.clear();
-      userDate.forEach(el => {
-        if (el.token === this.$store.state.token) {
-          el.joinList = this.joinList;
-          return;
-        }
-      });
-      localStorage.setItem("userList", JSON.stringify(userDate));  
+      if (userDate) {
+        localStorage.clear();
+        userDate.forEach(el => {
+          if (el.token === this.$store.state.token) {
+            el.joinList = this.joinList;
+            return;
+          }
+        });
+        localStorage.setItem("userList", JSON.stringify(userDate));
+      }else if(this.$store.state.token==="刘志鸿"){
+         alert("管理员参与的竞价记录不会保存")
+      }
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.container {
+.comptition {
   width: 50%;
+  height: 806px;
   margin: auto;
   .source-detail {
     height: auto;

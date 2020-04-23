@@ -37,111 +37,35 @@
       </div>
       <div class="auto">
         <div class="price" style="height:40px">
-          <span>办公类计算机</span>
-          <span>2000-3999</span>
-          <span>4000-5999</span>
-          <span>6000-7999</span>
-          <span>操作系统</span>
-          <span>办公软件</span>
-          <span>轿车</span>
-          <span>越野车</span>
+          <a v-for="(item,index) in filterList" :key="index" @click="filt">{{item}}</a>
         </div>
-        <Carousel
-          class="carousel"
-          autoplay
-          :autoplay-speed="autoplaySpeed"
-          dots="none"
-          arrow="never"
-        >
-          <Carousel-item>
-            <div class="source-detail">
-              <div class="circle" v-for="(source,index) in sources" :key="index">
-                <div class="imgbox">
-                  <a>
-                    <img class="tu" :src="source.imgUrl" alt />
-                  </a>
-                </div>
 
-                <div class="textbox">
-                  <span style="color:#ff2e4c;">￥{{source.price}}</span>
-                  <span>
-                    <a>{{source.detail}}</a>
-                  </span>
-                  <span class="span-1">
-                    近期成交量
-                    <span style="color:#c49173 ;">{{source.BusiNumber}}</span>件
-                  </span>
-                </div>
+        <div class="big-box">
+          <div class="source-detail">
+            <div class="circle" v-for="(source,index) in showData" :key="index">
+              <!-- <transition
+                    enter-active-class="animated tada"
+                    leave-active-class="animated bounceOutRight"
+              >-->
+              <div class="imgbox">
+                <a>
+                  <img class="tu" :src="source.imgUrl" alt />
+                </a>
+              </div>
+              <!-- </transition> -->
+              <div class="textbox">
+                <span style="color:#ff2e4c;">￥{{source.price}}</span>
+                <span>
+                  <a>{{source.detail}}</a>
+                </span>
+                <span class="span-1">
+                  近期成交量
+                  <span style="color:#c49173 ;">{{source.BusiNumber}}</span>件
+                </span>
               </div>
             </div>
-          </Carousel-item>
-          <Carousel-item>
-            <div class="source-detail">
-              <div class="circle" v-for="(source,index) in sources" :key="index">
-                <div class="imgbox">
-                  <a>
-                    <img class="tu" :src="source.imgUrl" alt />
-                  </a>
-                </div>
-
-                <div class="textbox">
-                  <span style="color:#ff2e4c;">￥{{source.price}}</span>
-                  <span>
-                    <a>{{source.detail}}</a>
-                  </span>
-                  <span class="span-1">
-                    近期成交量
-                    <span style="color:#c49173 ;">{{source.BusiNumber}}</span>件
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Carousel-item>
-          <Carousel-item>
-            <div class="source-detail">
-              <div class="circle" v-for="(source,index) in sources" :key="index">
-                <div class="imgbox">
-                  <a>
-                    <img class="tu" :src="source.imgUrl" alt />
-                  </a>
-                </div>
-
-                <div class="textbox">
-                  <span style="color:#ff2e4c;">￥{{source.price}}</span>
-                  <span>
-                    <a>{{source.detail}}</a>
-                  </span>
-                  <span class="span-1">
-                    近期成交量
-                    <span style="color:#c49173 ;">{{source.BusiNumber}}</span>件
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Carousel-item>
-          <Carousel-item>
-            <div class="source-detail">
-              <div class="circle" v-for="(source,index) in sources" :key="index">
-                <div class="imgbox">
-                  <a>
-                    <img class="tu" :src="source.imgUrl" alt />
-                  </a>
-                </div>
-
-                <div class="textbox">
-                  <span style="color:#ff2e4c;">￥{{source.price}}</span>
-                  <span>
-                    <a>{{source.detail}}</a>
-                  </span>
-                  <span class="span-1">
-                    近期成交量
-                    <span style="color:#c49173 ;">{{source.BusiNumber}}</span>件
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Carousel-item>
-        </Carousel>
+          </div>
+        </div>
       </div>
     </div>
     <div class="changtu">
@@ -237,7 +161,6 @@
               <h2>商品名称</h2>
               <p v-for="(item,index) in messgae.trash" :key="index">{{ item.title}}</p>
             </div>
-
             <div class="product">
               <h2>商品价格</h2>
               <p v-for="(item,index) in messgae.trash" :key="index">{{ item.msg_id}}</p>
@@ -260,116 +183,61 @@
 <script>
 import axios from "axios";
 export default {
-  asyncData() {},
+  asyncData() {
+    // return new Promise((resolve) => {
+    //   setTimeout(function () {
+    //     resolve({})
+    //   }, 1000)
+    // })
+  },
   data() {
     return {
       autoplaySpeed: 10000,
       messgae: "",
-      sources: [
-        {
-          id: 1,
-          price: 3949.0,
-          BusiNumber: 293,
-          type: "平板式微型计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0E/C2/wKhYn109mL2AbPVkAAB4iBGAp9U037.JPG",
-          detail: "华为/HUAWEI M6（4GB+64GB 全网通版 10.8英寸）平板式微型计算机"
-        },
-        {
-          id: 2,
-          price: 2799.0,
-          BusiNumber: 171,
-          type: "平板式微型计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0E/E6/wKhYn11Ci-CAQAxkAABCqoVdSLQ037.JPG",
-          detail: "华为/HUAWEI M6（4GB+128GB WiFi版 8.4英寸）平板式微型计算机"
-        },
-        {
-          id: 3,
-          price: 3949.0,
-          BusiNumber: 83,
-          type: "平板式微型计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0E/E6/wKhYn11Ci-CAQAxkAABCqoVdSLQ037.JPG",
-          detail: "华为/HUAWEI M6（4GB+128GB WiFi版 10.6英寸）平板式微型计算机"
-        },
-        {
-          id: 4,
-          price: 3750.0,
-          BusiNumber: 46,
-          type: "台式计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0E/DE/wKhYn11BSOSAOiz9AACMJlCngiI383.png",
-          detail:
-            "宏碁/ACER Veriton D650（I3-8100/4G/1T/集成显卡/无光驱/无显示器）台式机"
-        },
-        {
-          id: 5,
-          price: 3850.0,
-          BusiNumber: 27,
-          type: "台式计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/10/61/wKhYml1AFemADMwqAAD5FOc9euY920.jpg",
-          detail:
-            "华硕/ASUS D324MT（G3930/4G/500G/集成显卡/无光驱/19.5英寸）台式机"
-        },
-        {
-          id: 6,
-          price: 2799.0,
-          BusiNumber: 18,
-          type: "平板式微型计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0E/E6/wKhYn11CifOAEHPrAABCqoVdSLQ172.JPG",
-          detail: "华为/HUAWEI M6（4GB+64GB 全网通版 8.4英寸）平板式微型计算机"
-        },
-        {
-          id: 7,
-          price: 3029.0,
-          BusiNumber: 17,
-          type: "台式计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0B/51/wKhYn1xDIteAIy3qAAHgUQIv8XA715.png",
-          detail:
-            "宏碁/ACER Veriton D430（G3930/4G/1T/集成显卡/无光驱/无显示器）台式机"
-        },
-        {
-          id: 8,
-          price: 3029.0,
-          BusiNumber: 13,
-          type: "台式计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/11/FF/wKhYml2pX5SAJhbmAAG7R2d1IPs785.png",
-          detail:
-            "惠普/HP 280 Pro G4 MT（G5420/4G/256G SSD/集成显卡/无光驱/20.0英寸）台式机"
-        },
-        {
-          id: 9,
-          price: 3029.0,
-          BusiNumber: 12,
-          type: "平板式微型计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/11/A1/wKhYml2RX_OANPQLAABCqoVdSLQ166.JPG",
-          detail: "华为/HUAWEI M6（4GB+128GB 全网通版 8.4英寸）平板式微型计算机"
-        },
-        {
-          id: 10,
-          price: 3229.0,
-          BusiNumber: 10,
-          type: "台式计算机",
-          imgUrl:
-            "//www.gec123.com/group1/M00/0C/D6/wKhYmlxDNZKARFzYAAHgUQIv8XA009.png",
-          detail:
-            "宏碁/ACER Veriton D430（G4560/4G/1T/集成显卡/无光驱/无显示器）台式机"
-        }
-      ]
+      filterList: [
+        "办公类计算机",
+        "2000-3999",
+        "4000-5999",
+        "6000-7999",
+        "操作系统",
+        "办公软件",
+        "轿车",
+        "越野车"
+      ],
+      allDate: [],
+      showData: [],
+      num: 1,
+      timer: null
     };
   },
   mounted() {
     axios.get("/message/init").then(res => {
       this.messgae = res.data;
     });
+    axios.get("/message/shangpin").then(res => {
+      this.allDate = res.data;
+      this.showData = res.data.splice(0, 10);
+      this.lunbo();
+    });
   },
   methods: {
+    filt() {},
+    lunbo() {
+      this.timer = setInterval(() => {
+        if (this.num === 3) {
+          this.num = 0;
+        }
+
+        const start = this.num * 10;
+        this.num++;
+        const end = this.num * 10;
+        this.showData = [];
+        this.showData = this.allDate.slice(start, end);
+      }, 5000);
+    }
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   }
 };
 </script>
@@ -390,25 +258,25 @@ export default {
         justify-content: space-around;
         align-items: center;
       }
-      .carousel {
+      .big-box {
         height: 100%;
         width: 100%;
         .source-detail {
           height: 420px;
-          width: 1002px;
+          width: 100%;
           margin-left: 10px;
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
           .circle {
             height: 210px;
-            width: 200px;
+            width: 20%;
             border: 1px solid #e7e7e7;
             .imgbox {
               margin-left: 10px;
               margin-top: 20px;
               height: 100px;
-              width: 140px;
+              width: 80%;
               .tu {
                 height: 100px;
                 width: 140px;
@@ -418,7 +286,7 @@ export default {
             }
             .textbox {
               height: 70px;
-              width: 200px;
+              width: 90%;
               margin-top: 20px;
               overflow: hidden;
               text-overflow: ellipsis;
@@ -440,7 +308,7 @@ export default {
         .textbox span a {
           color: #333333;
           font-size: 12px;
-          width: 180px;
+          width: 100%;
           display: block;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -454,7 +322,7 @@ export default {
       }
     }
     .main {
-      width: 220px;
+      width: 16%;
       height: 485px;
       border: 1px solid rgba(238, 238, 238, 0.507);
 
