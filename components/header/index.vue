@@ -17,7 +17,7 @@
       </p>
       <div class="right">
         <NuxtLink to="/" style="background-color:#f8f8f8">首页</NuxtLink>
-        <NuxtLink to="/" style="background-color:#f8f8f8">我的中心</NuxtLink>
+        <NuxtLink to="/personal" style="background-color:#f8f8f8">我的中心</NuxtLink>
         <NuxtLink to="/" style="background-color:#f8f8f8">帮助中心</NuxtLink>
         <span>63782227(工作日)</span>
         <span>18183107831(节假日)</span>

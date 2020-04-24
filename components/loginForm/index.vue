@@ -136,7 +136,7 @@ export default {
 
           if (user && user.length) {
             this.setToken(user[0].token);
-            this.setUserData(user);
+            this.setUserData(user[0]);
             this.$router.push("/");
           } else {
             await this.$Message.error({

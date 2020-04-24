@@ -28,6 +28,10 @@
     "nuxt-lazyimage": "^2.0.1",
     "particles.js": "^2.0.0",
     "spinkit": "^2.0.1",
+    "three": "^0.115.0",
+    "three-css2drender": "^1.0.0",
+    "three-obj-mtl-loader": "^1.0.3",
+    "three-orbit-controls": "^82.1.0",
     "velocity-animate": "^1.5.2",
     "velocityjs": "^2.0.0",
     "vue": "^2.6.11"

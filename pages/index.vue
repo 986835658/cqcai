@@ -279,7 +279,7 @@ export default {
               width: 80%;
               .tu {
                 height: 100px;
-                width: 140px;
+                width: 100%;
                 /* transition: 5s;
     transform: rotate(360deg); */
               }
@@ -393,7 +393,6 @@ export default {
       color: #e54243;
       text-decoration: underline;
     }
-
     .card-content {
       width: 95%;
       .name {

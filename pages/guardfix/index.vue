@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="guardfix">
     <Card style="margin-top:20px">
       <Row>
         <div @click="initDate">
@@ -108,9 +108,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.container {
-  width: 100%;
+.guardfix {
+  width: 50%;
   height: 1500px;
+  margin: auto;
   .card {
     width: 100%;
     margin: auto;

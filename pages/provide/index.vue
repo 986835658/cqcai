@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="provide">
     <Card style="margin-top:20px">
       <Row>
         <div @click="initDate">
@@ -80,7 +80,7 @@
       <Row>
         公司名称：
         <i-input v-model="type" style="width:200px" clearable></i-input>
-        <Button  @click="searchList" style="margin-left: 20px">搜索</Button>
+        <Button @click="searchList" style="margin-left: 20px">搜索</Button>
       </Row>
     </Card>
     <Card class="card" style="margin-top:20px">
@@ -145,12 +145,14 @@ export default {
         {
           title: "联系电话",
           key: "phone",
-          align: "center"
+          align: "center",
+          width: 120
         },
         {
           title: "联系手机",
           key: "telphone",
-          align: "center"
+          align: "center",
+          width: 120
         },
         {
           title: "传真",
@@ -170,7 +172,7 @@ export default {
     searchList() {
       this.showData = [];
       this.allDate.forEach(item => {
-        if (item.provider.indexOf(this.type)!==-1) {
+        if (item.provider.indexOf(this.type) !== -1) {
           this.showData.push(item);
         }
       });
@@ -198,9 +200,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.container {
-  width: 100%;
+.provide {
+  width: 50%;
   height: 806px;
+  margin: auto;
   .card {
     width: 100%;
     margin: auto;

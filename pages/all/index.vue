@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <div id="echarts">
       <div style="height:50px"></div>
       <div id="myChart"></div>
@@ -279,14 +279,19 @@ export default {
 };
 </script>
 <style scoped lang="less">
+.main{
+  width: 50%;
+  height: 2000px;
+   margin: auto;
+}
 #echarts {
   height: auto;
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 .echarts {
   height: auto;
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 #myChart {
