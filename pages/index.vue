@@ -227,7 +227,6 @@ export default {
         if (this.num === 3) {
           this.num = 0;
         }
-
         const start = this.num * 10;
         this.num++;
         const end = this.num * 10;
