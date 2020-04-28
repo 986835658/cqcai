@@ -37,7 +37,7 @@ export default {
   },
   // other configs
 
-  css: ["~/assets/main.css", "~/assets/min.css"],
+  css: ["~/assets/main.css", "~/assets/min.css",'~/assets/animate.css'],
   /*
    ** Plugins to load before mounting the App
    */

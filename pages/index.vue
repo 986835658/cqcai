@@ -72,7 +72,7 @@
       <img src="https://www.gec123.com/group1/M00/10/2F/wKhYml016ZGAMgWfAAG0cwBmD_g484.png" alt />
     </div>
     <Row class="card-1">
-      <Card style="width:70%">
+      <Card class="wow slideInLeft" style="width:70%">
         <p slot="title">
           <span>竞价公告</span>
         </p>
@@ -91,7 +91,7 @@
           </ul>
         </div>
       </Card>
-      <Card style="width:25%">
+      <Card class="wow slideInRight" style="width:25%">
         <p slot="title">
           <span>重要通知</span>
         </p>
@@ -111,7 +111,7 @@
       </Card>
     </Row>
     <Row class="card-1" style="margin-top:20px">
-      <Card style="width:70%">
+      <Card class="wow slideInLeft" style="width:70%">
         <p slot="title">
           <span>成交公告</span>
         </p>
@@ -130,7 +130,7 @@
           </ul>
         </div>
       </Card>
-      <Card style="width:25%">
+      <Card class="wow slideInRight" style="width:25%">
         <p slot="title">
           <span>重要通知</span>
         </p>
@@ -150,7 +150,7 @@
       </Card>
     </Row>
     <Row class="card-1" style="margin-top:20px">
-      <Card style="width:97%">
+      <Card class="wow slideInUp" data-wow-delay="1s" style="width:97%">
         <p slot="title">
           <span>最近成交记录</span>
         </p>
@@ -182,6 +182,10 @@
 
 <script>
 import axios from "axios";
+if (process.browser) {
+  // 在这里根据环境引入wow.js
+  var { WOW } = require("wowjs");
+}
 export default {
   asyncData() {
     // return new Promise((resolve) => {
@@ -211,6 +215,13 @@ export default {
     };
   },
   mounted() {
+    if (process.browser) {
+      // 在页面mounted生命周期里面 根据环境实例化WOW
+      new WOW({
+        live: false,
+        offset: 0
+      }).init();
+    }
     axios.get("/message/init").then(res => {
       this.messgae = res.data;
     });

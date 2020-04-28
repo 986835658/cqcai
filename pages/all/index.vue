@@ -281,7 +281,7 @@ export default {
 <style scoped lang="less">
 .main{
   width: 50%;
-  height: 2000px;
+  height: 1500px;
    margin: auto;
 }
 #echarts {

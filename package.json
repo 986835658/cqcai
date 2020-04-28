@@ -15,6 +15,7 @@
     "@bazzite/nuxt-optimized-images": "^0.3.0",
     "@nuxtjs/axios": "^5.9.7",
     "@nuxtjs/proxy": "^1.3.3",
+    "animate.css": "^3.7.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.7.0",
@@ -43,6 +44,7 @@
     "responsive-loader": "^1.2.0",
     "sass-resources-loader": "^2.0.3",
     "vue-particles": "^1.0.9",
-    "webp-loader": "^0.6.0"
+    "webp-loader": "^0.6.0",
+    "wowjs": "^1.1.3"
   }
 }
