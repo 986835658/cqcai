@@ -45,7 +45,7 @@
               </div>
             </div>
 
-            <div  class="textbox">
+            <div class="textbox">
               <span style="color:#ff2e4c;">￥{{item.price}}</span>
               <span>
                 <a>{{item.detail}}</a>
@@ -167,7 +167,7 @@ export default {
   },
   mounted() {
     if (this.$store.state.token) {
-      const userDate = JSON.parse(localStorage.getItem("userList"));
+      let userDate = JSON.parse(localStorage.getItem("userList"));
       if (userDate) {
         userDate.forEach(el => {
           if (el.token === this.$store.state.token) {
@@ -181,18 +181,18 @@ export default {
   },
   destroyed() {
     clearInterval(this.timer);
-    if (this.$store.state.token && this.joinList.length) {
+    if (this.$store.state.token) {
       const userDate = JSON.parse(localStorage.getItem("userList"));
       if (userDate) {
         localStorage.clear();
         userDate.forEach(el => {
           if (el.token === this.$store.state.token) {
             el.joinList = this.joinList;
-            return;
           }
         });
         localStorage.setItem("userList", JSON.stringify(userDate));
-      } else if (this.$store.state.token === "刘志鸿") {
+      }
+      if (this.$store.state.token === "刘志鸿"&&this.joinList.length) {
         alert("管理员参与的竞价记录不会保存");
       }
     }

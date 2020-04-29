@@ -12,11 +12,37 @@
         <p>{{username.token}}</p>
       </div>
     </div>
-    <div class="message">
+    <div v-if="username.token==='刘志鸿'" class="message">
       <div class="message-box">
         <div v-if="local===''">亲爱的管理员，还没有人购买商品！</div>
-        <h2 v-if="local!==''" style="text-align:left;width:100%">用户{{local.name}}对以下商品进行了竞价</h2>
+        <h2 v-if="local!==''" style="text-align:left;width:100%">用户{{local[0].name}}对以下商品进行了竞价</h2>
         <div v-if="local!==''" class="source-detail">
+          <card class="circle" v-for="(item,index) in joinList" :key="index">
+            <div class="imgbox">
+              <a>
+                <img class="tu" :src="item.imgUrl" alt />
+              </a>
+            </div>
+
+            <div class="textbox">
+              <span style="color:#ff2e4c;">￥{{item.price}}</span>
+              <span>
+                <a>{{item.detail}}</a>
+              </span>
+              <span class="span-1">
+                近期成交量
+                <span style="color:#c49173 ;">{{item.BusiNumber}}</span>件
+              </span>
+            </div>
+          </card>
+        </div>
+      </div>
+    </div>
+    <div v-if="username.token!=='刘志鸿'" class="message">
+      <div class="message-box">
+        <div v-if="!joinList.length">您还没有购买和竞价商品！</div>
+        <h2 v-if="joinList.length" style="text-align:left;width:100%">您对以下商品进行了竞价</h2>
+        <div v-if="joinList.length" class="source-detail">
           <card class="circle" v-for="(item,index) in joinList" :key="index">
             <div class="imgbox">
               <a>
@@ -47,14 +73,16 @@ export default {
     return {
       userId: "",
       local: "",
-      joinList:[]
+      joinList: []
     };
   },
   created() {},
   mounted() {
-    this.local = JSON.parse(localStorage.getItem("userList"))[0];
+    this.local = JSON.parse(localStorage.getItem("userList")) || "";
     console.log(this.local);
-    this.joinList=this.local.joinList
+    if (this.local !== ""&&this.local[0].joinList) {
+      this.joinList = this.local[0].joinList;
+    }
   },
   computed: {
     username() {
@@ -136,7 +164,7 @@ export default {
             height: 70px;
             width: 100%;
             margin-top: 20px;
-       
+
             display: flex;
             flex-direction: column;
             justify-content: flex-start;

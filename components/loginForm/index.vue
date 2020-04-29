@@ -131,9 +131,7 @@ export default {
               return item;
             }
           });
-
           console.log(user);
-
           if (user && user.length) {
             this.setToken(user[0].token);
             this.setUserData(user[0]);

@@ -120,6 +120,7 @@ export default {
     return {
       gs: "",
       type: "",
+      time: null,
       showData: [],
       allDate: [],
       loading: false,
@@ -183,7 +184,7 @@ export default {
     },
     initDate() {
       this.loading = true;
-      setTimeout(() => {
+      this.time = setTimeout(() => {
         this.loading = false;
         axios.get("/message/provide").then(res => {
           this.showData = res.data;
@@ -195,6 +196,9 @@ export default {
 
   mounted() {
     this.initDate();
+  },
+  destroyed() {
+    clearTimeout(this.time);
   }
 };
 </script>

@@ -8,7 +8,7 @@
         <a @click="toLogin" style="color:#e54243">注册</a>
       </p>
       <p v-if="user">
-        重庆政府采购协议供货平台欢迎您！尊敬的用户{{user}}
+        重庆政府采购协议供货平台欢迎您！尊敬的{{user==='刘志鸿'?'管理员':'用户'}}{{user}}
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;点击
         <a
           @click="loginout"

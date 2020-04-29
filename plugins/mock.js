@@ -87,13 +87,10 @@ Mock.mock(/user\.json/, [
     name: "18223962895",
     access: ["super_admin", "admin"],
     token: "刘志鸿",
+    user:"18223962895",
+    pwd:'1234',
     avatar: "https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png"
   },
-  {
-    name: "15523722189",
-    token: "聂文亮",
-    avatar: "https://avatars0.githubusercontent.com/u/20942571?s=460&v=4"
-  }
 ]);
 
 Mock.mock(/\/message\/shangpin/, [
